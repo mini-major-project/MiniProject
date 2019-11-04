@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Selecting the services needed by the user</title>
+<style>
+    ul {
+        list-style-type: none;
+       
+        overflow: hidden;
+        background-color:purple;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .margin1
+      {
+  
+  margin-right: 450px;
+  margin-left: 450px;
+}
+ div.b {
+  text-align-last: left;
+  text-align: justify;
+  
+      }
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+.margin
+      {
+ 
+  margin-right: 450px;
+  margin-left: 450px;
+}
+      </style>
+
+</head>
+<body>
+<ul>
+                <li><a href="home.html">Home</a></li>
+               
+                <li><a href="aboutus.html">About Us</a></li>
+                
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="faqs.html">FAQ's</a></li>
+              </ul>
+<center><h1>Select the services needed: </h1></center><br><br>
+<form method="get" action="UserRequestProcessing" align="center">
+ <div class="margin">
+ <div class="b">
+       <h2><input type="checkbox" name="MechAsst" value="MechAsst" style="width:20px;height:20px;"> Mechanical Assistance</h2>
+        <h2><input type="checkbox" name="BatRepl" value="BatRepl" style="width:20px;height:20px;"> Battery Replacement</h2>
+        <h2><input type="checkbox" name="TyreRepl" value="TyreRepl" style="width:20px;height:20px;">Tyre Replacement</h2>
+       <h2><input type="checkbox" name="VechTow" value="VechTow" style="width:20px;height:20px;"> Vehicle Towing</h2>
+        <h2><input type="checkbox" name="FuelRef" value="FuelRef" style="width:20px;height:20px;"> Fuel Refill</h2>
+        <h2><input type="checkbox" name="Servicing" value="Servicing"style="width:20px;height:20px;">Servicing</h2><br><br><br>
+        <center> <input style="color:blanchedalmond;font-size:large;height:40px;background-color:#0099cc;align-content:center" type="submit" name="submit" value="Confirm" ></center><br><br>
+               
+
+        </div>
+        </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: purple;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .margin1 {
+            margin-right: 450px;
+            margin-left: 450px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            text-align: center;
+            width: 400px;
+            line-height: 26px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            height: 20px;
+            flex: 0 0 200px;
+            margin-left: 10px;
+        }
+    </style>
+
+    <script language="Javascript">
+        function validateEmail(x) {
+            var ret = false;
+            var error = "Please enter a valid e-mail address ";
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(x)) {
+                error = " ";
+                ret = true;
+            }
+            document.getElementById("mailValidation").innerHTML = error;
+            console.log(error);
+            return ret;
+        }
+
+        function validatePinCode(pincode) {
+           
+            var len = parseInt(pincode.length);
+            var ret = false;
+            var error ="Please enter a valid PinCode ";
+            if (len == 6 && isNaN(pincode) == false) {
+                error = " ";
+                ret = true;
+            }
+            document.getElementById("pinCodeValidation").innerHTML = error;
+            return ret;
+        }
+
+        function validatePassword(str) {
+            var ret = false;
+            var res = "Password Not valid( Should have 1 lowercase, 1 Uppercase, 1 special character,1 number, Min 8 characters";
+            if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8) {
+                res = " ";
+                ret = true;
+            }
+            document.getElementById("pswdValidation").innerHTML = res;
+            return ret;
+        }
+
+        function validatePasswords(pswd1, pswd2) {
+            if (pswd1 != pswd2) {
+                alert("Passwords are not matching");
+            }
+        }
+        function validateForm() {
+            if (!validatePassword(document.getElementById("userPswd").value) || !validateEmail(document.getElementById('userMail').value) || !validatePinCode(document.getElementById('userPinCode').value)) {
+                alert("Please Enter Valid Details");
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="faqs.html">FAQ's</a></li>
+    </ul>
+    <center>
+        <h2>Register Here!!!</h2>
+        <img src="register.jpg" width="550" height="280">
+        <br/><br/>
+        <div class="margin1">
+            <form method="get" action="UserRegistration">
+                
+                <label>  <b> Mail Id  : </b><input type="text" name="userMail" placeholder="Enter Mail Id"  id="userMail" onkeyup="validateEmail(document.getElementById('userMail').value)" required /> </label>
+                &nbsp;<span style="color:red;font-size:smaller" id="mailValidation"></span> <br>
+                
+                <label> <b> Name : </b><input type="text" name="userName" placeholder="Enter Name" required></label> <br>
+                <label> <b>Phone Number : </b><input type="text" name="userMobile" placeholder="Enter phone number" required></label> <br>
+                <label> <b> Address : </b><textarea type="text" name="userAddress" placeholder="Enter Address" style="height:60px;width:200px" required></textarea></label>
+                
+                <label> <b> Pin Code : </b><input type="text" name="userPinCode" placeholder="Enter Pin Code" id="userPinCode" onkeyup="validatePinCode(document.getElementById('userPinCode').value)" required></label>
+                &nbsp;<span style="color:red;font-size:smaller" id="pinCodeValidation"></span> <br>
+                
+                <label> <b>Set Password : </b><input type="password" name="userPswd" placeholder="Enter Password" id="userPswd" onkeyup="validatePassword(document.getElementById('userPswd').value)" required></label>
+                &nbsp;<span style="color:red;font-size:smaller" id="pswdValidation"></span> <br>
+                
+                <label> <b>  Re-Enter Password : </b><input type="password" name="userPswd" placeholder="Re-Enter Password" id="userPswd2" required></label> <br>
+                <input style="color:blanchedalmond;font-size:large;height:40px;background-color:#0099cc;align-content:center"  type="submit" name="submit" value="Register" onmouseover="validatePasswords(document.getElementById('userPswd').value, document.getElementById('userPswd2').value),validateForm()"><br><br>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
